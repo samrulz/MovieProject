@@ -12,17 +12,17 @@ import Alamofire
 class ViewController: UIViewController {
     
     var movieDataArray = [MovieData]()
-    var limit = 1
+    var page = 1
 
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Tv Series"
-      loadData(limit: limit)
+      loadData(page: page)
     }
     
-    func loadData(limit : Int){
-        let url = "https://api.trakt.tv/shows/trending?extended=full,images&limit=20&page=\(limit)"
+    func loadData(page : Int){
+        let url = "https://api.trakt.tv/shows/trending?extended=full,images&limit=20&page=\(page)"
         let headers:HTTPHeaders = [
             "Content-Type": "application/json",
             "trakt-api-key":"2e1d97c236b73fdbbdc4edac3fb5f4e22324446beaf306306e3bba61c3bf0412",
@@ -66,8 +66,8 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
         if indexPath.row == movieDataArray.count - 1{
-            limit += 1
-            loadData(limit: limit)
+            page += 1
+            loadData(page:page)
             
         }
     }
