@@ -17,6 +17,11 @@ class MovieDataCell: UITableViewCell {
         lblDataName.font = UIFont.boldSystemFont(ofSize: 20.0)
         
     }
+    
+    func configarationCell(name:String?,description:String?){
+        lblDataName.text = name!
+        lblDataDescription.text = description!
+    }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

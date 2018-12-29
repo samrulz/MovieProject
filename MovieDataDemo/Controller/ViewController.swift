@@ -59,9 +59,9 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MovieDataCell", for: indexPath) as! MovieDataCell
-        
-        cell.lblDataName.text = movieDataArray[indexPath.row].show!.title!
-        cell.lblDataDescription.text = movieDataArray[indexPath.row].show!.overview!
+        cell.configarationCell(name: movieDataArray[indexPath.row].show!.title!, description: movieDataArray[indexPath.row].show!.overview!)
+//        cell.lblDataName.text = movieDataArray[indexPath.row].show!.title!
+//        cell.lblDataDescription.text = movieDataArray[indexPath.row].show!.overview!
         return cell
     }
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
